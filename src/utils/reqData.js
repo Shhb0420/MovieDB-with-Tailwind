@@ -18,3 +18,9 @@ export const getMovieById = (itemId) => {
     `${API_URL}/movie/${itemId}?api_key=${API_KEY}&language=en-US`
   );
 };
+
+export const getReviewById = (itemId) => {
+  return axios.get(
+    `${API_URL}/movie/${itemId}/reviews?api_key=${API_KEY}&language=en-US`
+  );
+};

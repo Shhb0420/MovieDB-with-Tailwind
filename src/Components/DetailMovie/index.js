@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
-import movie from "../../Assets/Images/image4.png";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getMovieById } from "../../utils/redux/actions/movie";
 import { API_IMAGE } from "../../utils/environment";
 
 const DetailMovie = () => {
-  const { movieDetail: item, isPending } = useSelector((state) => state.movie);
+  const { movieDetail: item } = useSelector((state) => state.movie);
   const dispatch = useDispatch();
 
   const { id } = useParams();
@@ -22,14 +21,14 @@ const DetailMovie = () => {
 
   useEffect(() => {
     dispatch(getMovieById(id));
-  }, [id]);
+  }, [id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>
       <div
-        className="bg-no-repeat bg-center mt-20"
+        className="bg-no-repeat bg-cover mt-20"
         style={{
-          backgroundImage: `url(${"https://res.cloudinary.com/zada/image/upload/v1616720330/bg_z0jooz.png"})`,
+          backgroundImage: `url(${API_IMAGE}${item.backdrop_path})`,
           backgroundPositionY: "0px",
         }}
       >
@@ -56,7 +55,7 @@ const DetailMovie = () => {
               </div>
               <ul className="ml-120 -mt-12 border-r-2 border-white w-24">
                 <li className="font-extralight">User Score</li>
-                <li className="font-bold">{`${item.vote_count} Votes`}</li>
+                <li className="font-bold truncate">{`${item.vote_count} Votes`}</li>
               </ul>
               <ul className="ml-130 -mt-12 border-r-2 border-white w-24">
                 <li className="font-extralight">Status</li>
@@ -72,7 +71,7 @@ const DetailMovie = () => {
               </ul>
               <ul className="ml-150 -mt-12 border-r-2 border-white w-32">
                 <li className="font-extralight">Budget</li>
-                <li className="font-bold">
+                <li className="font-bold truncate">
                   {Number(item.budget).toLocaleString("en-US", {
                     style: "currency",
                     currency: "USD",
@@ -81,7 +80,7 @@ const DetailMovie = () => {
               </ul>
               <ul className="ml-160 -mt-12 border-r-2 border-white w-36">
                 <li className="font-extralight">Production</li>
-                <li className="font-bold">
+                <li className="font-bold truncate">
                   {item.production_companies !== undefined
                     ? item.production_companies[0].name
                     : null}
@@ -100,7 +99,7 @@ const DetailMovie = () => {
               <img
                 src={`${API_IMAGE}${item.poster_path}`}
                 alt=""
-                className="-mt-20 z-20"
+                className="-mt-20 z-20 w-60 h-80"
               />
             </div>
           </div>

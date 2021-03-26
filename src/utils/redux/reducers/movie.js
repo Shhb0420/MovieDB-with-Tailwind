@@ -98,6 +98,30 @@ const movieReducer = (state = initialState, { type, payload }) => {
         isFulfilled: true,
         // status: payload.data.data.msg,
       };
+    case actions.GET_REVIEW_BY_MOVIE_ID + actions.PENDING:
+      return {
+        ...state,
+        isPending: true,
+      };
+    case actions.GET_REVIEW_BY_MOVIE_ID + actions.REJECTED:
+      return {
+        ...state,
+        isPending: false,
+        isRejected: true,
+        isFulfilled: false,
+        status: payload.status_message,
+        // msg: payload.data.data.msg,
+      };
+    case actions.GET_REVIEW_BY_MOVIE_ID + actions.FULFILLED:
+      console.log("Review ", payload.data);
+      return {
+        ...state,
+        movieReviewDetail: payload.data,
+        isPending: false,
+        isRejected: false,
+        isFulfilled: true,
+        // status: payload.data.data.msg,
+      };
     default:
       return state;
   }
