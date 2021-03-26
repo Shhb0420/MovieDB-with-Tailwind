@@ -115,6 +115,8 @@ const Content = () => {
                               </Link>
                             </div>
                           </div>
+                          <h1 className="text-white font-bold">{title}</h1>
+                    <h1 className="text-white font-light">{release_date.split("-").slice(0, 1)}</h1>
                         </div>
                       </>
                     );

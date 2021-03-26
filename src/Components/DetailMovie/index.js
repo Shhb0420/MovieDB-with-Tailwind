@@ -9,14 +9,6 @@ const DetailMovie = () => {
   const dispatch = useDispatch();
 
   const { id } = useParams();
-
-  //   console.log(
-  //     "item",
-  //     item.budget.toLocaleString("en-US", {
-  //       style: "currency",
-  //       currency: "USD",
-  //     })
-  //   );
   console.log("id", id);
 
   useEffect(() => {

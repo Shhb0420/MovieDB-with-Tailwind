@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getReviewById } from "../../utils/redux/actions/movie";
-import { API_IMAGE } from "../../utils/environment";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.min.css";
 import "owl.carousel/dist/assets/owl.theme.default.min.css";
@@ -10,9 +9,11 @@ import "owl.carousel/dist/assets/owl.theme.default.min.css";
 const Review = () => {
   const { movieReviewDetail: item } = useSelector((state) => state.movie);
   const dispatch = useDispatch();
-  console.log("DATA ", item.results);
+
   const { id } = useParams();
-  console.log("id", id);
+  // console.log("id", id);
+  // const data = item.results
+  // console.log("ANJIM ", data);
 
   useEffect(() => {
     dispatch(getReviewById(id));
@@ -30,7 +31,7 @@ const Review = () => {
           dots
           loop
         >
-          {item.results.map(
+          {item !== undefined && item.map(
             ({ id, author, author_details, content, created_at }) => {
               return (
                 <div className="item p-4" key={id}>

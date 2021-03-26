@@ -13,6 +13,13 @@ export const getTrending = (data) => {
     type: actions.FETCH_ALL_MOVIE_TRENDING,
     payload: api.getTrending(data),
   };
+}; 
+
+export const getPopular = (data) => {
+  return {
+    type: actions.FETCH_ALL_MOVIE_POPULAR,
+    payload: api.getPopular(data),
+  };
 };
 
 export const getMovieById = (id) => {
@@ -26,5 +33,12 @@ export const getReviewById = (id) => {
   return {
     type: actions.GET_REVIEW_BY_MOVIE_ID,
     payload: api.getReviewById(id),
+  };
+};
+
+export const getMovieBySearch = (searchKey, data) => {
+  return {
+    type: actions.GET_MOVIE_BY_SEARCHING,
+    payload: api.getMovieBySearch(searchKey, data),
   };
 };
