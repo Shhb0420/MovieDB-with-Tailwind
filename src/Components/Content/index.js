@@ -25,7 +25,7 @@ const Content = () => {
     <>
       <ContentTittle />
       <div>
-        <div className="flex flex-wrap bg-navbar w-full h-screen">
+        <div className="flex flex-wrap bg-navbar w-full h-full">
           <div className="w-3/12 bg-slider p-3">
             <div className="w-3/4 -mt-28 bg-slider ml-22 text-white border-b-2 border-navbar">
               <h1 className="px-2 py-2">Sort Result By</h1>
