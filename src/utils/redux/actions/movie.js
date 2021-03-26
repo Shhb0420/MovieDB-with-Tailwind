@@ -21,3 +21,10 @@ export const getMovieById = (id) => {
     payload: api.getMovieById(id),
   };
 };
+
+export const getMovieBySearch = (searchKey, data) => {
+  return {
+    type: actions.GET_MOVIE_BY_ID,
+    payload: api.getMovieById(searchKey, data),
+  };
+};

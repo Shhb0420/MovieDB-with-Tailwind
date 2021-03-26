@@ -18,3 +18,10 @@ export const getMovieById = (itemId) => {
     `${API_URL}/movie/${itemId}?api_key=${API_KEY}&language=en-US`
   );
 };
+
+export const getMovieBySearch = (searchKey, data) => {
+  return axios.get(
+    `${API_URL}/search/movie?api_key=${API_KEY}&query=${searchKey}`,
+    data
+  );
+};
