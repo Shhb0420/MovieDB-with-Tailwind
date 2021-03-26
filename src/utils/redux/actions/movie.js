@@ -14,3 +14,10 @@ export const getTrending = (data) => {
     payload: api.getTrending(data),
   };
 };
+
+export const getMovieById = (id) => {
+  return {
+    type: actions.GET_MOVIE_BY_ID,
+    payload: api.getMovieById(id),
+  };
+};

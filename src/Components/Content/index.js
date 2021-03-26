@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import ContentTittle from "../ContentTittle";
 import { getGenres, getTrending } from "../../utils/redux/actions/movie";
 import { useDispatch, useSelector } from "react-redux";
@@ -69,7 +69,7 @@ const Content = () => {
                   ({ vote_average, poster_path, title, id, release_date }) => {
                     return (
                       <>
-                        <div className="lg:w-1/3 sm:w-1/2 p-4 mt-5">
+                        <div className="lg:w-1/3 sm:w-1/2 p-4 mt-5" key={id}>
                           <div className="flex relative">
                             <div className="bg-gray-500 opacity-80 px-3 py-2 h-12 z-10 ml-55">
                               {vote_average}
@@ -99,7 +99,12 @@ const Content = () => {
                               <h1 className="title-font text-lg font-medium text-white mb-3 text-center">
                                 Action
                               </h1>
-                              <Link className="flex mt-10 text-white bg-red-600 border py-2 px-20 focus:outline-none hover:bg-gray-400 rounded-full">
+                              <Link
+                                to={{
+                                  pathname: `/detail/${id}`,
+                                }}
+                                className="flex mt-10 text-white bg-red-600 border py-2 px-20 focus:outline-none hover:bg-gray-400 rounded-full"
+                              >
                                 View
                               </Link>
                               <Link

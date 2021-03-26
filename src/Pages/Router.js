@@ -8,14 +8,14 @@ export default function Router() {
   return (
     <BrowserRouter>
       <Route exact path="/" component={Home} />
-      <Route path="/detail" component={Detail} />
-      <Route
+      <Route exact path="/detail/:id" component={Detail} />
+      {/* <Route
         path="/external"
         component={() => {
           window.location = "https://reactjs.org/";
           return null;
         }}
-      />
+      /> */}
     </BrowserRouter>
   );
 }
